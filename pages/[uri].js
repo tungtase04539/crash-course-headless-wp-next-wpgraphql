@@ -11,6 +11,7 @@ export default function SlugPage({ post }) {
       <Head>
         <title>{post.title}</title>
         <link rel="icon" href="favicon.ico"></link>
+        <meta property="og:image" content={post.featuredImage.node.sourceUrl}></meta>
 
       </Head>
 
@@ -40,6 +41,11 @@ export async function getStaticProps({ params }){
       content
       date
       uri
+      featuredImage {
+        node {
+          sourceUrl 
+        }
+      }
       author{
         node{
           firstName
