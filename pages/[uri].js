@@ -11,6 +11,7 @@ export default function SlugPage({ post }) {
       <Head>
         <title>Headless WP Next Starter</title>
         <link rel="icon" href="favicon.ico"></link>
+        <meta property="og:title" content="{post.title}"/> 
       </Head>
 
       <main>
