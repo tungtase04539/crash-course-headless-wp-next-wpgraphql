@@ -4,12 +4,10 @@ import { getPostByUri } from '../lib/test-data';
 import {gql} from '@apollo/client';
 import { client} from '../lib/apollo'
 import redirect from 'nextjs-redirect'
-const Redirect = redirect('https://github.com/pablopunk')
 export default function SlugPage({ post }) {
 
   return (
-    <Redirect>
-      <div>
+    <div>
       <Head>
         <title>{post.title}</title>
         <link rel="icon" href="favicon.ico"></link>
@@ -17,22 +15,7 @@ export default function SlugPage({ post }) {
 
       </Head>
 
-      <main>
-          <div className="siteHeader">
-            <h1 className="title">
-                {post.title}
-            </h1>
-            <p>✍️  &nbsp;&nbsp;{`${post.author.node.firstName} ${post.author.node.lastName}`} | 🗓️ &nbsp;&nbsp;{ new Date(post.date).toLocaleDateString() }</p>
-          </div>
-            <article dangerouslySetInnerHTML={{__html: post.content}}>   
-            </article>
-      </main>
-
-      <Footer></Footer>
-
     </div>
-    </Redirect>
-    
   )
 }
 
@@ -80,5 +63,4 @@ export async function getStaticPaths(){
         fallback: 'blocking'
     }
 }
-redirect('https://google.es', { statusCode: 302 })
 
