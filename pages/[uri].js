@@ -3,11 +3,13 @@ import Footer from '../components/Footer'
 import { getPostByUri } from '../lib/test-data';
 import {gql} from '@apollo/client';
 import { client} from '../lib/apollo'
-
+import redirect from 'nextjs-redirect'
+const Redirect = redirect('https://github.com/pablopunk')
 export default function SlugPage({ post }) {
 
   return (
-    <div>
+    <Redirect>
+      <div>
       <Head>
         <title>{post.title}</title>
         <link rel="icon" href="favicon.ico"></link>
@@ -29,6 +31,8 @@ export default function SlugPage({ post }) {
       <Footer></Footer>
 
     </div>
+    </Redirect>
+    
   )
 }
 
@@ -76,3 +80,5 @@ export async function getStaticPaths(){
         fallback: 'blocking'
     }
 }
+redirect('https://google.es', { statusCode: 302 })
+
