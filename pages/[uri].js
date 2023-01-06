@@ -9,9 +9,9 @@ export default function SlugPage({ post }) {
   return (
     <div>
       <Head>
-        <title>Headless WP Next Starter</title>
+        <title>{post.title}</title>
         <link rel="icon" href="favicon.ico"></link>
-        <meta property="og:title" content="{post.title}"/> 
+
       </Head>
 
       <main>
