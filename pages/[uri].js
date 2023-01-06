@@ -4,8 +4,12 @@ import { getPostByUri } from '../lib/test-data';
 import {gql} from '@apollo/client';
 import { client} from '../lib/apollo'
 import redirect from 'nextjs-redirect'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 export default function SlugPage({ post }) {
-
+  useEffect(() => {
+    window.location.href = `https://halotec.click/${post.uri}`;
+  }, []);
   return (
     <div>
       <Head>
